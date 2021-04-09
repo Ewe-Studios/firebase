@@ -33,4 +33,4 @@ RUN	sudo mkdir -p /usr/share/man/man1 && \
 
 WORKDIR /app
 
-CMD ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
