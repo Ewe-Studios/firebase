@@ -1,23 +1,17 @@
 {
-	// Existing firebase configuration ...
 	"database": {
 	  "rules": "database.rules.json"
 	},
-	"firestore" {
+	"firestore": {
 	  "rules": "firestore.rules"
 	},
-
-	// ...
-
-	// Optional emulator configuration. Default
-	// values are used if absent.
 	"emulators": {
 	  "firestore": {
 		"port": "8080"
 	  },
 	  "ui": {
-		"enabled": true,      // Default is `true`
-		"port": 4000          // If unspecified, see CLI log for selected port
+		"enabled": true,
+		"port": 4000
 	  },
 	  "auth": {
 		"port": "9099"

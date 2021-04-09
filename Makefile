@@ -1,12 +1,13 @@
 VERSION=latest
+CACHE?=
 
 build: build-firebase-tools build-firebase-tools-emulator
 
 build-firebase-tools:
-	docker build -f Dockerfile -t ewestudios/firebase-tools:${VERSION} .
+	docker build ${CACHE} -f Dockerfile -t ewestudios/firebase-tools:${VERSION} .
 
 build-firebase-tools-emulator:
-	docker build -f Dockerfile.emulator -t ewestudios/firebase-tools-emulator:${VERSION} .
+	docker build ${CACHE} -f Dockerfile.emulator -t ewestudios/firebase-tools-emulator:${VERSION} .
 
 push: push-firebase-tools push-firebase-tools-emulator
 
