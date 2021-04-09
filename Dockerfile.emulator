@@ -1,0 +1,7 @@
+FROM ewestudios/firebase-tools:latest
+
+COPY ./entrypoint-emulator.sh /app/entrypoint.sh
+
+WORKDIR /app
+
+CMD ["/app/entrypoint.sh"]
