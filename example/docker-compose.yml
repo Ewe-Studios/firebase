@@ -5,20 +5,15 @@ services:
   # -------------------------------------
   # Firebase Eumulator
   # -------------------------------------
-
   emulator:
     image: ewestudios/firebase-tools-emulator:latest
     build: .
     volumes:
-	  - ./firebase/functions:/app/functions:rw
-	  - ./firebase/public:/app/public:rw
-	  - ./firebase/.firebaserc:/app/.firebaserc:rw
-      - ./firebase/hosted.json:/app/hosted.json:rw
-	  - ./firebase/firebase.json:/app/firebase.json:rw
-	  - ./firebase/firestore.rules:/app/firestore.rules:rw
-	  - ./firebase/database.rules.json:/app/database.rules:rw
+	  - ./firebase:/app/firebase:rw
     env-file:
 	  - .env
+	networks:
+		- firebase
     ports:
       - 5001:5001
       - 9000:9000
@@ -27,5 +22,7 @@ services:
       - 5000:5000
       - 4000:4000
 
+networks:
+	firebase:
+
 volumes:
-  firebase:

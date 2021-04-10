@@ -1,10 +1,8 @@
 FROM ewestudios/firebase-tools:latest
 
 COPY ./entrypoint-emulator.sh /app/entrypoint.sh
-COPY ./firestore.rules /app/firestore.rules
-COPY ./database.rules.json /app/database.rules.json
 
-WORKDIR /app
+WORKDIR /app/firebase
 
 EXPOSE 4000
 EXPOSE 8080
@@ -13,8 +11,5 @@ EXPOSE 9099
 EXPOSE 5001
 EXPOSE 9000
 EXPOSE 8085
-
-ENV FIREBASE_PROJECT "ultra"
-ENV FIREBASE_TOKEN ""
 
 CMD ["/app/entrypoint.sh"]
