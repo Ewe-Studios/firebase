@@ -40,6 +40,8 @@ RUN	sudo mkdir -p /usr/share/man/man1 && \
 	sudo rm -rf /var/cache/apt/archives
 
 EXPOSE 4000
+EXPOSE 4400
+EXPOSE 4500
 EXPOSE 8080
 EXPOSE 9099
 EXPOSE 5001
