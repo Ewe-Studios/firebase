@@ -66,3 +66,4 @@ node_modules/
 .env
 
 cache/firebase/emulators/cloud-firestore-emulator-v1.11.14.jar
+cache/firebase/emulators/pubsub-emulator
