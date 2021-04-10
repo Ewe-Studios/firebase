@@ -17,14 +17,19 @@ USER docker
 
 # Fix issue with JRE installation
 RUN sudo mkdir -p app && \
+	sudo mkdir -p /home/docker && \
 	sudo apt update && \
 	sudo apt install -y curl ca-certificates
 
 RUN	curl -sL firebase.tools | bash
 
+COPY cache/firebase/emulators /home/docker/.cache/firebase/emulators
 COPY ./entrypoint.sh /app/entrypoint.sh
 COPY ./firestore.rules /app/firestore.rules
 COPY ./database.rules.json /app/database.rules.json
+COPY functions /app/functions
+COPY .firebaserc /app
+COPY ./firebase.json /app/firebase.json
 
 RUN	sudo mkdir -p /usr/share/man/man1 && \
 	sudo apt install -y openjdk-11-jre-headless ca-certificates-java && \
@@ -38,7 +43,8 @@ EXPOSE 9099
 EXPOSE 5001
 EXPOSE 9000
 EXPOSE 8085
+EXPOSE 8084
 
 WORKDIR /app
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["/app/entrypoint.sh"]
